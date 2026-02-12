@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoostStyle | Főoldal</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --hero-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0,0,0,0.08);
+            --nav-bg: #ffffff;
+        }
+
+        [data-bs-theme="dark"] {
+            --bg-color: #0f0f0f;
+            --text-color: #f8f9fa;
+            --hero-bg: #161616;
+            --card-bg: #1e1e1e;
+            --card-shadow: rgba(0,0,0,0.5);
+            --nav-bg: #0f0f0f;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .navbar { background-color: var(--nav-bg) !important; border-bottom: 1px solid rgba(125,125,125,0.2); }
+        
+        .hero { background: var(--hero-bg); padding: 120px 0; }
+
+        .card { 
+            background-color: var(--card-bg); 
+            color: var(--text-color);
+            border: none; border-radius: 15px; 
+            box-shadow: 0 10px 30px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Swiper egyedi stílus */
+        .swiper { padding: 40px 20px; }
+        
+        #themeSwitcher { cursor: pointer; font-size: 1.2rem; padding: 8px; border-radius: 50%; transition: 0.3s; }
+        #themeSwitcher:hover { background: rgba(125,125,125,0.2); }
+
+        .btn-primary { padding: 12px 35px; border-radius: 10px; font-weight: 600; }
+    </style>
+</head>
+<body data-bs-theme="light">
+
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">BOOSTCORE_CLONE</a>
+            <div class="d-flex align-items-center order-lg-last">
+                <div id="themeSwitcher" class="me-3"><i class="bi bi-moon-stars-fill" id="themeIcon"></i></div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="#">Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="products.html">Termékek</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#velemenyek">Vélemények</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero text-center">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-3 fw-bold mb-4">A jövő weboldala <br><span class="text-primary">már ma elérhető.</span></h1>
+            <p class="lead opacity-75 mb-5 mx-auto" style="max-width: 700px;">Ugyanaz a struktúra, ugyanaz a sebesség, de a te saját tartalmadra szabva.</p>
+            <a href="products.html" class="btn btn-primary btn-lg">Kezdjük el a vásárlást</a>
+        </div>
+    </section>
+
+    <section class="py-5 bg-opacity-10 bg-primary">
+        <div class="container text-center py-5">
+            <h2 class="fw-bold mb-5" data-aos="fade-up">Miért válassz minket?</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="p-4 card h-100">
+                        <div class="display-5 text-primary fw-bold mb-2">99%</div>
+                        <p class="mb-0 fw-bold">Rendelkezésre állás</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="p-4 card h-100">
+                        <div class="display-5 text-primary fw-bold mb-2">24/7</div>
+                        <p class="mb-0 fw-bold">Profi Támogatás</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="p-4 card h-100">
+                        <div class="display-5 text-primary fw-bold mb-2">1h</div>
+                        <p class="mb-0 fw-bold">Átlagos válaszidő</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="velemenyek" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Ügyfeleink mondták</h2>
+            <div class="swiper mySwiper" data-aos="fade-up">
+                <div class="swiper-wrapper" id="review-container">
+					</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container py-4" data-aos="flip-up">
+            <h2 class="display-5 fw-bold mb-3">Válaszd ki a csomagodat!</h2>
+            <p class="lead mb-4 opacity-75">Nincsenek rejtett költségek, csak tiszta teljesítmény.</p>
+            <a href="products.html" class="btn btn-light btn-lg px-5 fw-bold shadow-lg">SHOP NOW</a>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top text-center opacity-50">
+        <div class="container">© 2026 BoostStyle Pro. Minden jog fenntartva.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+		<script>
+		async function loadReviews() {
+				const container = document.getElementById('review-container');
+				
+				try {
+					// Most már a helyi reviews.json fájlból olvassuk az adatokat
+					const response = await fetch('reviews.json');
+					const reviews = await response.json();
+					
+					if (!reviews || reviews.length === 0) {
+						container.innerHTML = "<p class='text-center'>Hamarosan érkeznek az értékelések...</p>";
+						return;
+					}
+
+					container.innerHTML = ""; 
+
+					reviews.forEach(r => {
+						let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(r.csillag || 5);
+						
+						container.innerHTML += `
+							<div class="swiper-slide">
+								<div class="card p-4 border-0 shadow-sm h-100">
+									<div class="mb-2">${stars}</div>
+									<p class="small flex-grow-1">"${r.szoveg}"</p>
+									<div class="d-flex align-items-center mt-3 border-top pt-3">
+										<div>
+											<div class="fw-bold text-primary">${r.nev}</div>
+											<div class="text-muted small">${r.ido}</div>
+										</div>
+										<div class="ms-auto opacity-50">
+											<img src="https://hardverapro.hu/favicon.ico" width="16">
+										</div>
+									</div>
+								</div>
+							</div>
+						`;
+					});
+
+					initSwiper(); // Swiper újraindítása az adatokkal
+					
+				} catch (error) {
+            console.error("Hiba a json beolvasásakor:", error);
+            container.innerHTML = "<p class='text-center'>Hiba történt az adatok beolvasásakor. Ellenőrizd a fájlt!</p>";
+        }
+			}
+
+		function initSwiper() {
+			new Swiper(".mySwiper", {
+				slidesPerView: 1,
+				spaceBetween: 20,
+				loop: true,
+				autoplay: { delay: 4000 },
+				breakpoints: {
+					768: { slidesPerView: 2 },
+					1024: { slidesPerView: 3 }
+				}
+			});
+		}
+
+		// AOS animáció indítása
+		AOS.init({ duration: 1000, once: true });
+
+		// Sötét mód kapcsoló logikája
+		const switcher = document.getElementById('themeSwitcher');
+		const icon = document.getElementById('themeIcon');
+		
+		switcher.addEventListener('click', () => {
+			const currentTheme = document.body.getAttribute('data-bs-theme');
+			const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+			document.body.setAttribute('data-bs-theme', newTheme);
+			icon.classList.toggle('bi-sun-fill');
+			icon.classList.toggle('bi-moon-stars-fill');
+		});
+
+		// Az egész folyamat elindítása a betöltéskor
+		loadReviews();
+	</script>
+</body>
+</html>
