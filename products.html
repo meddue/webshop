@@ -3,251 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoostStyle | Termékek</title>
+    <title>Termékek | Webshop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <style>
-        :root { --bg-color: #ffffff; --text-color: #212529; --card-bg: #ffffff; --card-shadow: rgba(0,0,0,0.08); }
-        [data-bs-theme="dark"] { --bg-color: #0f0f0f; --text-color: #f8f9fa; --card-bg: #1e1e1e; --card-shadow: rgba(0,0,0,0.5); }
-
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: 0.3s; }
+        :root { --bg-color: #0b0e14; --card-bg: #16191f; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: white; }
         
-        /* Világító effekt kurzornál */
+        /* BoostCore stílusú kártyák */
         .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(125,125,125,0.2);
-            border-radius: 15px;
+            background: var(--card-bg) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: block;
         }
         .product-card:hover {
-            border-color: #0d6efd;
-            box-shadow: 0 0 20px rgba(13, 110, 253, 0.4);
+            border-color: #0d6efd !important;
+            box-shadow: 0 0 25px rgba(13, 110, 253, 0.3);
             transform: translateY(-5px);
         }
-
-        /* Lebegő vásárlási doboz */
-        .sticky-buy-box {
-            position: sticky;
-            top: 100px;
-            z-index: 100;
-        }
-
-        .price-tag { font-size: 2rem; font-weight: 700; color: #0d6efd; }
+        .price-tag { color: #0d6efd; font-weight: 800; }
     </style>
 </head>
-<body data-bs-theme="light">
+<body>
 
-    <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom">
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="index.html">BOOSTCORE_CLONE</a>
-            <a href="index.html" class="btn btn-outline-secondary btn-sm">Vissza a főoldalra</a>
+            <a class="navbar-brand fw-bold" href="index.html">WEBSHOP</a>
+            <a href="index.html" class="btn btn-outline-light btn-sm">Főoldal</a>
         </div>
     </nav>
 
     <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Termékek</a></li>
-                        <li class="breadcrumb-item active">Pro Web Keretrendszer</li>
-                    </ol>
-                </nav>
-
-                <div data-aos="fade-right">
-                    <h1 class="display-4 fw-bold mb-4">Pro Web Keretrendszer v2.0</h1>
-                    <img src="https://via.placeholder.com/800x400" class="img-fluid rounded-4 mb-4 shadow-sm" alt="Product">
-                    
-                    <h3 class="fw-bold mt-5">Leírás</h3>
-                    <p class="lead opacity-75">Ez a rendszer tartalmazza mindazt, amit a BoostCore-on láttál: sebesség, sötét mód, és könnyű kezelhetőség. Ideális ügynökségeknek és egyéni fejlesztőknek.</p>
-                    
-                    <hr class="my-5">
-
-<h3 class="fw-bold mb-4">Vásárlói vélemények</h3>
-<div id="static-reviews-container" class="row g-4">
-    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="sticky-buy-box" data-aos="fade-left">
-                    <div class="card p-4 shadow-lg border-primary">
-                        <div class="price-tag mb-2">19.990 Ft</div>
-                        <p class="text-muted small mb-4">Egyszeri díj, örökös licensz</p>
-                        
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold">Mennyiség</label>
-                            <input type="number" class="form-control" value="1" min="1">
-                        </div>
-
-                        <button class="btn btn-primary btn-lg w-100 mb-3 fw-bold" data-bs-toggle="modal" data-bs-target="#buyModal">
-                            MEGVESZEM MOST
-                        </button>
-                        
-                        <div class="text-center">
-                            <i class="bi bi-shield-lock me-2"></i><span class="small opacity-75">Biztonságos fizetés</span>
+        <h1 class="text-center display-4 fw-bold mb-5" data-aos="fade-down">Válassz szolgáltatást</h1>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                <a href="product-chatgpt.html" class="product-card card h-100 p-3">
+                    <img src="https://via.placeholder.com/300x180/1a1d23/007bff?text=ChatGPT+Plus" class="card-img-top rounded-3 mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold">ChatGPT Plus (Business)</h5>
+                        <p class="text-muted small">Saját munkaterület, 1 hónap.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">2 990 Ft</span>
+                            <span class="badge bg-primary">SHOP NOW</span>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                <a href="product-youtube.html" class="product-card card h-100 p-3">
+                    <img src="https://via.placeholder.com/300x180/1a1d23/ff0000?text=YouTube+Premium" class="card-img-top rounded-3 mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold">YouTube Prémium + Music</h5>
+                        <p class="text-muted small">Saját fiókra, 1 évre.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">14 990 Ft</span>
+                            <span class="badge bg-primary">SHOP NOW</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                <a href="product-canva.html" class="product-card card h-100 p-3">
+                    <img src="https://via.placeholder.com/300x180/1a1d23/7d2ae8?text=Canva+PRO" class="card-img-top rounded-3 mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Canva PRO</h5>
+                        <p class="text-muted small">Saját fiókra, 1 évre.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">19 990 Ft</span>
+                            <span class="badge bg-primary">SHOP NOW</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            </div>
     </div>
 
-    <div class="modal fade" id="buyModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" data-bs-theme="dark">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold">Rendelés befejezése</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="https://formspree.io/f/mgolaolk" method="POST">
-						<div class="modal-body">
-							<input type="hidden" name="_subject" value="Új rendelés: Pro Web Keretrendszer">
-							
-							<div class="mb-3">
-								<label class="form-label">E-mail címed</label>
-								<input type="email" name="email" class="form-control" placeholder="pelda@email.hu" required>
-							</div>
-							
-							<div class="mb-3">
-								<label class="form-label">Kuponkód (opcionális)</label>
-								<div class="input-group">
-									<input type="text" name="kupon" class="form-control" placeholder="KÓD10">
-								</div>
-							</div>
-
-							<div class="mb-3">
-								<label class="form-label">Mennyiség</label>
-								<input type="number" name="mennyiseg" class="form-control" value="1">
-							</div>
-
-							<div class="bg-light p-3 rounded mb-3 text-dark">
-								<div class="d-flex justify-content-between">
-									<span>Fizetendő:</span>
-									<span class="fw-bold">19.990 Ft</span>
-								</div>
-							</div>
-							
-							<p class="small text-muted text-center">A gombra kattintva elküldjük a fizetési tájékoztatót az e-mailedre.</p>
-						</div>
-						<div class="modal-footer border-0">
-							<button type="submit" class="btn btn-primary w-100 py-2 fw-bold">MEGRENDELÉS ÉS FIZETÉS</button>
-						</div>
-					</form>
-                </div>
-                <div class="modal-footer border-0">
-                    <button class="btn btn-primary w-100 py-2 fw-bold">FIZETÉS INDÍTÁSA</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, once: true });</script>
-	<script>
-    // A teljes lista (ezt kell majd bővítened, ha jön új)
-    const reviews = [
-  { "nev": "horasz94", "szoveg": "YouTube Prémiumot vettem, minden rendben ment.", "ido": "2026-02-12 14:22:38", "csillag": 5 },
-  { "nev": "D4V3EXE", "szoveg": "Minde rendben ment", "ido": "2026-02-11 18:27:48", "csillag": 5 },
-  { "nev": "Spoken2295", "szoveg": "Minden rendben ment.", "ido": "2026-02-11 13:56:35", "csillag": 5 },
-  { "nev": "tylerszeged", "szoveg": "minden rendben gyorsan és egyszerűen ment!", "ido": "2026-02-10 22:33:55", "csillag": 5 },
-  { "nev": "St0k1", "szoveg": "Minden rendben ment, ajánlom!", "ido": "2026-02-04 05:49:47", "csillag": 5 },
-  { "nev": "petyka73", "szoveg": "Szia,írtam privát üzenetet.....", "ido": "2026-01-31 09:45:22", "csillag": 5 },
-  { "nev": "sztothj", "szoveg": "Gyors, megbízható eladó. Ajánlom!", "ido": "2026-01-22 23:17:51", "csillag": 5 },
-  { "nev": "stockhouse", "szoveg": "minden rendben ment, gyors es korrekt.", "ido": "2026-01-10 14:22:48", "csillag": 5 },
-  { "nev": "ftamas0201", "szoveg": "Az első privát üzenet után nagyon hamar megtörtént a vásárlás és az aktiválás. Korrekt és gyors partner, első vásárlásom volt, remélhetőleg nem lesz gond az előfizetéssel! Természetesen ajánlott partner!", "ido": "2026-01-10 13:41:21", "csillag": 5 },
-  { "nev": "szaddam07", "szoveg": "Megbízható partner. Felmerülő probléma esetén a megoldásra törekszik. Ajánlom mindenkinek.", "ido": "2025-12-10 11:34:31", "csillag": 5 },
-  { "nev": "Razor5100", "szoveg": "3 hónapja vásárolok nála előfizetést, hibátlan, gyors, segítőkész, korrekt eladó! Csak ajánlani tudom!", "ido": "2025-12-09 16:27:22", "csillag": 5 },
-  { "nev": "Geespot", "szoveg": "Immáron 3. alkalommal is minden a legnagyobb rendben ment. Köszönöm.", "ido": "2025-12-01 21:57:27", "csillag": 5 },
-  { "nev": "nsgeri", "szoveg": "Minden rendben ment, nagyon segítőkész és gyorsan válaszol", "ido": "2025-11-20 20:47:35", "csillag": 5 },
-  { "nev": "Pé", "szoveg": "Gyors, korrekt partner, minden OK és tényleg percek alatt. Ajánlom.", "ido": "2025-11-20 15:41:06", "csillag": 5 },
-  { "nev": "Imotek", "szoveg": "Korrekt, gyors intézés, minden a leírtak szerint zajlott!", "ido": "2025-11-18 17:23:15", "csillag": 5 },
-  { "nev": "Szentlélek10", "szoveg": "ChatGpt plusz, semmi gond nem volt, gyors és megbízható", "ido": "2025-11-14 12:30:08", "csillag": 5 },
-  { "nev": "petyka73", "szoveg": "ChatGpt plus20 , minden jól ment", "ido": "2025-11-11 15:31:30", "csillag": 5 },
-  { "nev": "Theotar", "szoveg": "Minden rendben és gyorsan ment. Korrekt, megbízható eladó.", "ido": "2025-11-11 15:24:08", "csillag": 5 },
-  { "nev": "Arklon", "szoveg": "Gyors és korrekt partner, működik minden szuperül!", "ido": "2025-11-11 15:01:14", "csillag": 5 },
-  { "nev": "vida.laci", "szoveg": "Már több hónapja használom az előfizetést. Minden tökéletesen működik. Gyors, korrekt partner.", "ido": "2025-11-11 14:52:10", "csillag": 5 },
-  { "nev": "petyka73", "szoveg": "szia.írtam privátot....", "ido": "2025-11-09 12:53:48", "csillag": 5 },
-  { "nev": "tucsok.", "szoveg": "Mindenkinek ajanlom! Az uzlet meglepoen gyorsan ment, megbizhato, ahogy irja ugy van.", "ido": "2025-10-31 18:31:54", "csillag": 5 },
-  { "nev": "Rainfreezer", "szoveg": "Csak javasolni tudom. Sokadik vásárlásom és mindig a megbeszéltek szerint történik minden. Csillagos 5-ös", "ido": "2025-10-30 13:10:58", "csillag": 5 },
-  { "nev": "wolf0914", "szoveg": "én a Chatgpt szereztem be , minden rendben ment", "ido": "2025-10-30 12:46:11", "csillag": 5 },
-  { "nev": "Rad1us", "szoveg": "Mindenrendben ment ahogy le van írva. Korrekt megbízható eladó!", "ido": "2025-10-27 22:38:27", "csillag": 5 },
-  { "nev": "drpeter", "szoveg": "Minden rendben ment. Ajánlom!", "ido": "2025-10-27 10:23:14", "csillag": 5 },
-  { "nev": "D4V3EXE", "szoveg": "Minden rendben ment, működik, megbízható eladó.", "ido": "2025-10-22 19:01:23", "csillag": 5 },
-  { "nev": "1sTeX", "szoveg": "Minden úgy ment ahogy le van írva korrekt megbízható eladó.", "ido": "2025-10-20 15:11:18", "csillag": 5 },
-  { "nev": "keriarpi", "szoveg": "Minden rendben ment, gyorsan és pontosan", "ido": "2025-10-18 18:41:02", "csillag": 5 },
-  { "nev": "thess", "szoveg": "Minden rendben ment, ajánlott eladó!", "ido": "2025-10-15 15:44:19", "csillag": 5 },
-  { "nev": "Nitrotitó", "szoveg": "Köszönöm szépen! Minden szuper! Bátran ajánlom!", "ido": "2025-10-14 16:21:30", "csillag": 5 },
-  { "nev": "istvangal", "szoveg": "Korrekt, megbízható, segítőkész! AJÁNLOM!", "ido": "2025-10-14 12:43:45", "csillag": 5 },
-  { "nev": "linuxuser666", "szoveg": "Minden úgy ment, ahogy mennie kell. Vásároljatok nála nyugodtan, korrekt.", "ido": "2025-10-12 13:18:48", "csillag": 5 },
-  { "nev": "TheLegend", "szoveg": "Gyors, segítőkész eladó, ajánlom!", "ido": "2025-10-11 16:11:13", "csillag": 5 },
-  { "nev": "alparsz", "szoveg": "Minden rendben volt, korrekt, megbízható eladó. ChatGPT előfizetést vettem tőle.", "ido": "2025-10-09 11:52:23", "csillag": 5 },
-  { "nev": "GyGergő", "szoveg": "Gyors és korrekt eladó, minden rendben volt.", "ido": "2025-10-08 12:19:50", "csillag": 5 },
-  { "nev": "Geespot", "szoveg": "Minden rendben zajlott. Korrekt, megbízható eladó.", "ido": "2025-10-08 09:14:06", "csillag": 5 },
-  { "nev": "size", "szoveg": "Megbízható, segítőkész eladó. Mindenkinek ajánlom!", "ido": "2025-09-28 08:58:00", "csillag": 5 },
-  { "nev": "Vikitorony", "szoveg": "Gyors reakcióidő, szuper szolgáltatás.", "ido": "2025-09-27 23:27:27", "csillag": 5 },
-  { "nev": "Senoy", "szoveg": "Nagyon segítőkész , szuper gyorsan megoldotta amit kértem csak ajánlani tudom !", "ido": "2025-09-26 18:15:38", "csillag": 5 },
-  { "nev": "nltibi", "szoveg": "Minden korrektül, rendben ment. Ajánlom mindenkinek.", "ido": "2025-09-24 13:29:00", "csillag": 5 },
-  { "nev": "Razor5100", "szoveg": "Nagyon sok kérdésem volt, mindenre türelmesen, készségesen válaszolt, végül minden a megbeszéltek szerint történt. Korrekt eladó, ajánlom!", "ido": "2025-09-23 07:32:36", "csillag": 5 },
-  { "nev": "Dzsadam", "szoveg": "Minden a megbeszéltek és a leírás alapján, korrekt és gyors. 10/10", "ido": "2025-09-20 12:44:08", "csillag": 5 },
-  { "nev": "Otyka", "szoveg": "Minden oke volt. Gxorsan mwgkaptam, amit akartam.", "ido": "2025-09-19 16:24:57", "csillag": 5 },
-  { "nev": "Spoken2295", "szoveg": "Minden rendben ment! ChatGPT előfizetést vettem tőle.", "ido": "2025-09-19 16:06:49", "csillag": 5 },
-  { "nev": "andrastoth80", "szoveg": "Megbízható, korrekt eladó.", "ido": "2025-09-15 20:10:09", "csillag": 5 },
-  { "nev": "krisz971", "szoveg": "Minden jól ment! Ajánlom!", "ido": "2025-09-13 19:38:37", "csillag": 5 },
-  { "nev": "k-zoltan25", "szoveg": "Visszatérő vásárlóként maximálisan ajánlom. Köszönöm szépen! +++++", "ido": "2025-09-13 18:30:00", "csillag": 5 },
-  { "nev": "Kriszbet", "szoveg": "Nagyon megbízható, türelmes, korrekt eladó. Csak ajánlani tudom!", "ido": "2025-09-10 09:30:28", "csillag": 5 },
-  { "nev": "darabont", "szoveg": "Minden rendben, korrekt, gyors.", "ido": "2025-09-09 13:13:15", "csillag": 5 },
-  { "nev": "preilakos", "szoveg": "Minden gyorsan, a megbeszéltek szerint ment. Korrekt, megbízható eladó.", "ido": "2025-09-08 18:35:17", "csillag": 5 },
-  { "nev": "horogcsabi", "szoveg": "Minden a megbeszélés szerint történt. Minden működik, csak ajánlani tudom.", "ido": "2025-09-06 17:19:26", "csillag": 5 },
-  { "nev": "Ligeti Lászl", "szoveg": "Minden rendben ment \n15p alat meg is kaptam \nCsak ajánlani tudom!", "ido": "2025-09-06 12:46:18", "csillag": 5 },
-  { "nev": "Rainfreezer", "szoveg": "Nagyon korrekt kolléga. Csak javasolni tudom. Minden a megbeszéltek szerint történt ***** alap", "ido": "2025-09-05 19:29:51", "csillag": 5 },
-  { "nev": "vida.laci", "szoveg": "Minden rendben és gyorsan ment. Tökéletesen működik az előfizetés.", "ido": "2025-09-05 19:28:09", "csillag": 5 },
-  { "nev": "simkoz", "szoveg": "Gyors udvarias kiszolgálás. YT prémium tagságot vásároltam, előre utaltam. Minden rendben volt, csak ajánlani tudom mindenkinek.", "ido": "2025-09-01 21:35:38", "csillag": 5 },
-  { "nev": "csepelball", "szoveg": "Minden rendben volt, csak ajánlani tudom a tapasztalataim alapján.", "ido": "2025-08-27 17:09:14", "csillag": 5 },
-  { "nev": "petyka73", "szoveg": "10 perc és minden kész. 5*", "ido": "2025-08-27 17:02:13", "csillag": 5 },
-  { "nev": "Kokenyrich", "szoveg": "Iszonyat jófej, normális és megbízható eladó, mindenben segítőkész volt. 5⭐️!I", "ido": "2025-08-26 13:42:42", "csillag": 5 },
-  { "nev": "Yellocardo", "szoveg": "A hirdetésben leírtaknak megfelelően megkaptam a szolgáltatást. Ajánlott!", "ido": "2025-08-22 13:48:52", "csillag": 5 },
-  { "nev": "Will24", "szoveg": "Minden rendben ment, gyorsan válaszol és nagyon korrekt, ajánlott abszolút ++", "ido": "2025-08-19 22:28:07", "csillag": 5 },
-  { "nev": "wolwerein86", "szoveg": "minden rendben volt korrekt eladó", "ido": "2025-08-16 12:45:58", "csillag": 5 },
-  { "nev": "atesz29", "szoveg": "Minden rendben ment, ajánlom az eladót", "ido": "2025-08-14 22:30:27", "csillag": 5 },
-  { "nev": "GuruHD", "szoveg": "Korrekt eladó, csak ajánlani tudom", "ido": "2025-08-14 12:33:08", "csillag": 5 },
-  { "nev": "k-zoltan25", "szoveg": "Gyors, korrekt, megbízható eladó. A termékeket gyorsan megkaptam. Mindenkinek ajánlom! + + + + +", "ido": "2025-08-11 17:27:15", "csillag": 5 }
-];
-
-    function displayStaticReviews() {
-        const container = document.getElementById('static-reviews-container');
-        if (!container) return;
-        
-        container.innerHTML = ""; 
-        // Rendezés: legújabb elöl
-        const sortedReviews = [...reviews].sort((a, b) => new Date(b.ido) - new Date(a.ido));
-
-        sortedReviews.forEach(r => {
-            let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(5);
-            container.innerHTML += `
-                <div class="col-12" data-aos="fade-up">
-                    <div class="card p-4 border-0 shadow-sm mb-3" style="background-color: var(--card-bg) !important; border: 1px solid rgba(125,125,125,0.1) !important;">
-                        <div class="mb-2">${stars}</div>
-                        <p class="mb-3">"${r.szoveg}"</p>
-                        <div class="d-flex align-items-center border-top pt-3">
-                            <div>
-                                <div class="fw-bold text-primary">${r.nev}</div>
-                                <div class="text-muted small">${r.ido}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-        });
-    }
-
-    // FONTOS: Ez indítja el a folyamatot
-    displayStaticReviews();
-</script>
 </body>
 </html>

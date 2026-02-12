@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Plus (Business) | Webshop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root { --bg-color: #0b0e14; --text-color: #eeeeee; --card-bg: #16191f; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); }
+        .sticky-buy-box { position: sticky; top: 100px; z-index: 100; }
+        .price-tag { font-size: 2.5rem; font-weight: 800; color: #0d6efd; }
+        .card { background-color: var(--card-bg) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">WEBSHOP</a>
+            <a href="products.html" class="btn btn-outline-light btn-sm">Vissza a termékekhez</a>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-8" data-aos="fade-right">
+                <h1 class="display-4 fw-bold mb-4">ChatGPT Plus (Business)</h1>
+                <div class="badge bg-primary mb-3">Azonnali kézbesítés</div>
+                <img src="https://via.placeholder.com/800x400/16191f/0d6efd?text=ChatGPT+Plus" class="img-fluid rounded-4 mb-5 shadow">
+                
+                <h3 class="fw-bold">Leírás</h3>
+                <ul class="lead opacity-75 list-unstyled">
+                    <li><i class="bi bi-check-lg text-primary me-2"></i> Saját munkaterület - csapatban, de nem megosztott (csak te látod)</li>
+                    <li><i class="bi bi-check-lg text-primary me-2"></i> Meghívás alapon - minden hónapban új meghívó</li>
+                    <li><i class="bi bi-check-lg text-primary me-2"></i> Több hónapra is előfizethető (üzeneteket le kell menteni váltáskor)</li>
+                    <li><i class="bi bi-check-lg text-primary me-2"></i> <strong>Fizetés utólag is lehetséges!</strong></li>
+                </ul>
+
+                <hr class="border-secondary my-5">
+                <h3 class="fw-bold mb-4">Vásárlói vélemények</h3>
+                <div id="static-reviews-container" class="row g-4"></div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sticky-buy-box" data-aos="fade-left">
+                    <div class="card p-4 shadow-lg border-primary">
+                        <div class="price-tag mb-2">2 990 Ft</div>
+                        <div class="text-muted small text-decoration-line-through mb-1">Eredeti ár: 9 000 Ft</div>
+                        <p class="text-info small mb-4">Időtartam: 1 hónap</p>
+                        <button class="btn btn-primary btn-lg w-100 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#buyModal">MEGVESZEM MOST</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const reviews = [ /* IDE MÁSOLD A 66 VÉLEMÉNYT */ ];
+        function displayStaticReviews() {
+            const container = document.getElementById('static-reviews-container');
+            if (!container) return;
+            const sortedReviews = [...reviews].sort((a, b) => new Date(b.ido) - new Date(a.ido));
+            sortedReviews.forEach(r => {
+                let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(5);
+                container.innerHTML += `<div class="col-12"><div class="card p-4 border-0 shadow-sm mb-3"><div class="mb-2">${stars}</div><p class="mb-3 opacity-75">"${r.szoveg}"</p><div class="fw-bold text-primary small">${r.nev}</div><div class="text-muted" style="font-size:0.7rem;">${r.ido}</div></div></div>`;
+            });
+        }
+        displayStaticReviews();
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
