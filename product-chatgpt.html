@@ -106,6 +106,35 @@
 .price-tag {
     color: #00ff88 !important;
 }
+/* PC-n elrejtjük a középső kártyát, mobilon megmutatjuk */
+@media (min-width: 992px) {
+    .d-lg-none { display: none !important; }
+}
+
+@media (max-width: 991px) {
+    /* Mobilon elrejtjük a jobb oldali sticky dobozt, hogy ne legyen dupla */
+    .sticky-buy-box { display: none !important; }
+}
+
+/* A kártya stílusa, ami követi a Light/Dark módot */
+.mid-page-buy-card {
+    border-radius: 20px;
+}
+
+[data-bs-theme="light"] .mid-page-buy-card {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+[data-bs-theme="dark"] .mid-page-buy-card {
+    background-color: #16191f !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.buy-card-price { color: #00ff88 !important; font-weight: 800; font-size: 2.5rem; }
+.buy-card-btn { background-color: #00ff88 !important; color: #000 !important; border: none; }
 </style>
 </head>
 <body>
@@ -129,19 +158,28 @@
                     <li><i class="bi bi-check-lg text-primary me-2"></i> Több hónapra is előfizethető (üzeneteket le kell menteni váltáskor)</li>
 
                 </ul>
-<div class="my-5 d-lg-none">
-    <div class="card p-4 text-center border-0 shadow-lg" style="background: #16191f; border-radius: 20px;">
-        <div class="d-flex justify-content-center mb-3">
-            <span class="badge" style="background: #00ff88; color: #000; font-size: 0.7rem; letter-spacing: 1px;">DYNAMIC</span>
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <h1>ChatGPT Plus</h1>
+            <img src="..." class="product-main-img">
+            <h3>Leírás</h3>
+            <ul>...</ul>
         </div>
-        <h4 class="fw-bold mb-1 text-white">ChatGPT Plus (Business)</h4>
-        <div class="mb-3" style="color: #00ff88; font-size: 2.5rem; font-weight: 800;">2 990 Ft</div>
-        
-        <button class="btn btn-lg w-100 py-3 fw-bold d-flex align-items-center justify-content-center" 
-                style="background: #00ff88; color: #000; border: none; border-radius: 12px;"
-                data-bs-toggle="modal" data-bs-target="#buyModal">
-            Purchase Now <i class="bi bi-chevron-right ms-2"></i>
-        </button>
+
+        <div class="col-lg-4">
+            <div class="sticky-buy-box">
+                </div>
+        </div>
+    </div> <div class="my-5 d-lg-none">
+        <div class="mid-page-buy-card card p-4 text-center border-0 shadow-lg">
+            <h4 class="fw-bold">ChatGPT Plus</h4>
+            <div class="buy-card-price">2 990 Ft</div>
+            <button class="btn buy-card-btn w-100 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#buyModal">
+                Purchase Now
+            </button>
+        </div>
+    </div>
         
         <div class="mt-4 d-flex justify-content-center gap-4 opacity-50 small text-white">
             <span><i class="bi bi-person-fill"></i> 1659 eladva</span>
