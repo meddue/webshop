@@ -354,22 +354,32 @@
         if (mySwiper && mySwiper.autoplay) mySwiper.autoplay.start();
     }
 
-    // DARK MODE JAVÍTÁS
-    const switcher = document.getElementById('themeSwitcher');
-    if (switcher) {
-        switcher.addEventListener('click', () => {
-            const currentTheme = document.body.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.body.setAttribute('data-bs-theme', newTheme);
-            
-            // Ikon csere
-            const icon = document.getElementById('themeIcon');
-            if (icon) {
-                icon.classList.toggle('bi-sun-fill');
-                icon.classList.toggle('bi-moon-stars-fill');
-            }
-        });
+    // Sötét mód kapcsoló javított verziója
+const switcher = document.getElementById('themeSwitcher');
+if (switcher) {
+    switcher.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Beállítás alkalmazása
+        document.body.setAttribute('data-bs-theme', newTheme);
+        // Választás elmentése
+        localStorage.setItem('theme', newTheme);
+        
+        updateThemeIcon(newTheme);
+    });
+}
+
+function updateThemeIcon(theme) {
+    const icon = document.getElementById('themeIcon');
+    if (icon) {
+        if (theme === 'dark') {
+            icon.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
+        } else {
+            icon.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
+        }
     }
+}
 
     displayReviews();
     AOS.init({ duration: 1000, once: true });
