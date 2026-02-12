@@ -168,60 +168,61 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
 				<script>
-			async function loadReviews() {
-				const container = document.getElementById('review-container');
-				try {
-					const response = await fetch('reviews.json');
-					let reviews = await response.json();
-					
-					if (!reviews || reviews.length === 0) return;
+    // AZ ÖSSZES ÉRTÉKELÉSED EGY HELYEN
+    const reviews = [
+        { "nev": "horasz94", "szoveg": "YouTube Prémiumot vettem, minden rendben ment.", "ido": "2026-02-12 14:22:38", "csillag": 5 },
+        { "nev": "D4V3EXE", "szoveg": "Minde rendben ment", "ido": "2026-02-11 18:27:48", "csillag": 5 },
+        { "nev": "Spoken2295", "szoveg": "Minden rendben ment.", "ido": "2026-02-11 13:56:35", "csillag": 5 },
+        { "nev": "tylerszeged", "szoveg": "minden rendben gyorsan és egyszerűen ment!", "ido": "2026-02-10 22:33:55", "csillag": 5 },
+        { "nev": "alparsz", "szoveg": "Minden rendben volt, korrekt, megbízható eladó. ChatGPT előfizetést vettem tőle.", "ido": "2025-10-09 11:52:23", "csillag": 5 }
+        // Ide bármikor másolhatsz még többet a korábbi listából
+    ];
 
-					// MEGFORDÍTÁS: Így a legfrissebb (utolsó a JSON-ban) kerül az elejére
-					reviews.reverse();
+    function displayReviews() {
+        const container = document.getElementById('review-container');
+        if (!container) return;
+        
+        container.innerHTML = ""; 
+        // Megfordítjuk, hogy a legújabb legyen elöl
+        const sortedReviews = [...reviews].reverse();
 
-					container.innerHTML = ""; 
-					reviews.forEach(r => {
-						let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(5);
-						container.innerHTML += `
-							<div class="swiper-slide">
-								<div class="card p-4 border-0 shadow-sm h-100">
-									<div class="mb-2">${stars}</div>
-									<p class="small flex-grow-1">"${r.szoveg}"</p>
-									<div class="d-flex align-items-center mt-3 border-top pt-3">
-										<div>
-											<div class="fw-bold text-primary">${r.nev}</div>
-											<div class="text-muted small">${r.ido}</div>
-										</div>
-									</div>
-								</div>
-							</div>`;
-					});
-					initSwiper();
-				} catch (e) { console.error(e); }
-			}
+        sortedReviews.forEach(r => {
+            let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(5);
+            container.innerHTML += `
+                <div class="swiper-slide">
+                    <div class="card p-4 border-0 shadow-sm h-100">
+                        <div class="mb-2">${stars}</div>
+                        <p class="small flex-grow-1">"${r.szoveg}"</p>
+                        <div class="d-flex align-items-center mt-3 border-top pt-3">
+                            <div>
+                                <div class="fw-bold text-primary">${r.nev}</div>
+                                <div class="text-muted small">${r.ido}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        initSwiper();
+    }
 
-			function initSwiper() {
-				new Swiper(".mySwiper", {
-					slidesPerView: 1,
-					spaceBetween: 30,
-					loop: true,
-					speed: 6000, // Lassú, egyenletes úszás
-					autoplay: {
-						delay: 0,
-						disableOnInteraction: false,
-					},
-					allowTouchMove: false, 
-					freeMode: true,
-					momentum: false,
-					breakpoints: {
-						768: { slidesPerView: 3 },
-						1200: { slidesPerView: 5 }
-					}
-				});
-			}
+    function initSwiper() {
+        new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            speed: 6000,
+            autoplay: { delay: 0, disableOnInteraction: false },
+            freeMode: true,
+            breakpoints: {
+                768: { slidesPerView: 3 },
+                1200: { slidesPerView: 5 }
+            }
+        });
+    }
 
-			loadReviews();
-			AOS.init({ duration: 1000, once: true });
-		</script>
+    // Indítás
+    displayReviews();
+    AOS.init({ duration: 1000, once: true });
+</script>
 </body>
 </html>
