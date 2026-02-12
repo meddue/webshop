@@ -10,7 +10,26 @@
     <style>
         /* Finomabb Sötét Mód (nem teljes fekete) */
         :root { --bg-color: #0f1116; --card-bg: #1a1d23; --text-muted: #94a3b8; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: white; }
+					/* Eredeti fix színek helyett használjunk változókat */
+			body { 
+				font-family: 'Inter', sans-serif; 
+				background-color: var(--bs-body-bg); /* Bootstrap gyári változója */
+				color: var(--bs-body-color); 
+				transition: background-color 0.3s ease;
+			}
+
+			/* Egyedi kártya színek a módokhoz */
+			[data-bs-theme="light"] .product-card {
+				background: #ffffff !important;
+				color: #1a1d23;
+				border: 1px solid #dee2e6 !important;
+			}
+
+			[data-bs-theme="dark"] .product-card {
+				background: #1a1d23 !important;
+				color: #ffffff;
+				border: 1px solid rgba(255, 255, 255, 0.08) !important;
+			}
         
         .product-card {
             background: var(--card-bg) !important;
