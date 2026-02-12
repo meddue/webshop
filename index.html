@@ -65,15 +65,15 @@
 		}
 
 		.reviews-wrapper::before,
-		.reviews-wrapper::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			width: 20%;
-			height: 100%;
-			z-index: 2;
-			pointer-events: none;
-		}
+.reviews-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    z-index: 10; /* Legyen a kártyák felett */
+    pointer-events: none; /* Át lehessen nyúlni rajta az egérrel */
+}
 
 		.reviews-wrapper::before {
 			left: 0;
@@ -168,14 +168,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
 				<script>
-    // AZ ÖSSZES ÉRTÉKELÉSED EGY HELYEN
+    // AZ ÖSSZES ÉRTÉKELÉSED
     const reviews = [
         { "nev": "horasz94", "szoveg": "YouTube Prémiumot vettem, minden rendben ment.", "ido": "2026-02-12 14:22:38", "csillag": 5 },
         { "nev": "D4V3EXE", "szoveg": "Minde rendben ment", "ido": "2026-02-11 18:27:48", "csillag": 5 },
         { "nev": "Spoken2295", "szoveg": "Minden rendben ment.", "ido": "2026-02-11 13:56:35", "csillag": 5 },
         { "nev": "tylerszeged", "szoveg": "minden rendben gyorsan és egyszerűen ment!", "ido": "2026-02-10 22:33:55", "csillag": 5 },
         { "nev": "alparsz", "szoveg": "Minden rendben volt, korrekt, megbízható eladó. ChatGPT előfizetést vettem tőle.", "ido": "2025-10-09 11:52:23", "csillag": 5 }
-        // Ide bármikor másolhatsz még többet a korábbi listából
     ];
 
     function displayReviews() {
@@ -183,8 +182,11 @@
         if (!container) return;
         
         container.innerHTML = ""; 
-        // Megfordítjuk, hogy a legújabb legyen elöl
-        const sortedReviews = [...reviews].reverse();
+        
+        // Itt nem fordítjuk meg a listát (reverse), mert a tömbben az utolsó a legfrissebb, 
+        // és mi azt akarjuk, hogy balról (az elejéről) kezdődjön.
+        // Tehát a sorrend: legfrissebb -> régebbi
+        const sortedReviews = [...reviews].sort((a, b) => new Date(b.ido) - new Date(a.ido));
 
         sortedReviews.forEach(r => {
             let stars = '<i class="bi bi-star-fill text-warning"></i>'.repeat(5);
@@ -202,7 +204,9 @@
                     </div>
                 </div>`;
         });
-        initSwiper();
+        
+        // Kis szünetet hagyunk a Swipernek, hogy a kártyák tényleg bekerüljenek a DOM-ba
+        setTimeout(initSwiper, 100);
     }
 
     function initSwiper() {
@@ -210,17 +214,23 @@
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
-            speed: 6000,
-            autoplay: { delay: 0, disableOnInteraction: false },
-            freeMode: true,
+            speed: 8000, // Ezzel állítod a sebességet (minél nagyobb, annál lassabb)
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            freeMode: {
+                enabled: true,
+                momentum: false,
+            },
             breakpoints: {
-                768: { slidesPerView: 3 },
-                1200: { slidesPerView: 5 }
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1400: { slidesPerView: 4 }
             }
         });
     }
 
-    // Indítás
     displayReviews();
     AOS.init({ duration: 1000, once: true });
 </script>
