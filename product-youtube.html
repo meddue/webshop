@@ -70,6 +70,20 @@
         }
         displayStaticReviews();
         AOS.init({ duration: 800, once: true });
+				// Azonnali ellenőrzés betöltéskor
+		(function() {
+			const savedTheme = localStorage.getItem('theme') || 'dark'; // Alapértelmezett legyen a dark, ha még nincs mentve
+			document.body.setAttribute('data-bs-theme', savedTheme);
+			// Ha van ikon az oldalon, frissítsük
+			const icon = document.getElementById('themeIcon');
+			if (icon) {
+				if (savedTheme === 'dark') {
+					icon.classList.add('bi-sun-fill');
+				} else {
+					icon.classList.add('bi-moon-stars-fill');
+				}
+			}
+		})();
     </script>
 </body>
 </html>
